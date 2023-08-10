@@ -12,13 +12,10 @@ function AppRoutes() {
     <Routes>
       <Route path="/" element={<LoginForm />} />
       <Route path="/cadastro" element={<CreateForm />} />
-      <Route path="/esqueci-senha" element={<ForgotPasswordForm />} />    
-      {localStorage.getItem("app_id") ? (
-        <Route path="/inicio" element={<Home />} />
-      ) : (
-        <Route path="/login" element={<User />} />
-      )}
-      </Routes>
+      <Route path="/esqueci-senha" element={<ForgotPasswordForm />} />
+      <Route path="/inicio" element={<Home />} />
+      <Route path="/login" element={<User />} />
+    </Routes>
   );
 }
 

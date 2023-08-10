@@ -3,9 +3,12 @@ import React from 'react';
 import './styles.css';
 
 const Home: React.FC = () => {
+    const userName = localStorage.getItem("app_user");
     return(
-        <div className='layout-page'>
-            <h1>Bem vindo { localStorage.getItem("app_user") }</h1>
+        <div className="container">
+            <form className="paper">
+            <h1>Bem vindo {userName}!</h1>
+            </form>
         </div>
     );
 }
