@@ -1,0 +1,88 @@
+
+.container > h1 {
+    color: #f0a141;
+}
+
+.login-subtitle {
+    font-size: 18px;
+}
+
+.form-login > form {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+    padding: 25px;
+    /* width: 728px;
+    height: 760px; */
+    border-radius: 47px;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+
+}
+
+.form-login > form > label {
+    margin-top: 10px;
+    color: #f0a141;
+    font-size: 20px;
+}
+
+.custom-input {
+    outline: none;
+    height: 44px;
+    border: 2px solid #f0a141;
+    border-radius: 27px;
+    padding-left: 15px;
+}
+
+.custom-input:focus {
+
+    border: 3px solid #f0a141;
+}
+
+.custom-buttom {
+    margin-top: 40px;
+    outline: none;
+    height: 44px;
+    border: 2px solid #f0a141;
+    background-color: #f0a141;
+    color: white;
+    border-radius: 27px;
+    padding-left: 15px;
+    transition: 0.3s;
+    font-size: 20px;
+}
+
+.custom-buttom:hover {
+
+    border: 2px solid #f0a141;
+    background-color: #dd943c;
+}
+
+.custom-buttom:focus {
+
+    outline: none;
+}
+
+.actions {
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.actions > a {
+    color: #f0a141;
+}
+
+.actions > p > a {
+    color: #f0a141;
+}
+
+a:hover {
+    color: #dd943c;
+    text-decoration: none;
+}
+
+.actions > p > a:hover {
+    color: #dd943c;
+}
