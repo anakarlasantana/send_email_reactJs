@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import './styles.css';
 
 const LoginForm: React.FC = () => {
+
     return(
         <div className="container">
             <h1>Login</h1>
