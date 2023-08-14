@@ -11,11 +11,9 @@ const CreateForm: React.FC = () => {
     const saveUsers = (userData: { name: string, email: string, password: string }) => {
         postSaveUsers(userData)
             .then((res) => {
-                // Processar a resposta aqui, se necessário
                 console.log("Resposta da requisição:", res);
             })
             .catch((error) => {
-                // Lidar com erros, se necessário
                 console.error("Erro na requisição:", error);
             });
     };

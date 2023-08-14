@@ -14,14 +14,12 @@ const LoginForm: React.FC = () => {
         setLoading(true)
         postLogin(userData)
             .then((res) => {
-                // Processar a resposta aqui, se necessário
                 console.log("Resposta da requisição:", res);
                 localStorage.setItem("app_user", res.name);
                 navigate('/inicio')
                
             })
             .catch((error) => {
-                // Lidar com erros, se necessário
                 console.error("Erro na requisição:", error);
             })
             .finally(() => {
