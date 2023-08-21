@@ -14,7 +14,7 @@ const LoginForm: React.FC = () => {
         setLoading(true)
         postLogin(userData)
             .then((res) => {
-                console.log("Resposta da requisição:", res);
+                console.log("Login efetuado com sucesso!");
                 localStorage.setItem("app_user", res.name);
                 navigate('/inicio')
                

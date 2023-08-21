@@ -51,6 +51,29 @@
     font-size: 20px;
 }
 
+.custom-buttom-userRegistered {
+    padding: 10px;
+    outline: none;
+    height: 50px;
+    border: 2px solid #f0a141;
+    background-color: #f0a141;
+    color: white;
+    border-radius: 27px;
+    transition: 0.3s;
+    font-size: 20px;
+}
+
+.user-registered {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.close-button {
+    margin-top: 15px; 
+}
+
 .custom-buttom:hover {
 
     border: 2px solid #f0a141;
