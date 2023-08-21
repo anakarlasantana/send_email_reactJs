@@ -13,7 +13,7 @@ You can check the repositories here:
 
 NodeJs API Repository
 
-# 🚀 Technologies in the API
+# 🚀 Technologies in the API:
 - Typescript
 - React
 - Bootstrap
