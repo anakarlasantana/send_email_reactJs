@@ -14,11 +14,11 @@ You can check the repositories here:
 NodeJs API Repository
 
 # 🚀 Technologies in the API
-Typescript
-React
-Bootstrap
-Axios
-Router-dom
+- Typescript
+- React
+- Bootstrap
+- Axios
+- Router-dom
 
 # 📖 DEV Diary:
 - With the depreciation of the getRepository method by TypeORM, I adapted the server to accept the new way of adapting to the database through the AppDataSource.
