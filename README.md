@@ -3,7 +3,7 @@
 ![Alt text](image.png)
 
 # 📔 About
-Application for login, with possible add user and password recuperation.
+Application for login, with possible add users and password recuperation.
 
 # 💻 Is it running?
 You can check it out up and running at Netlify by clicking here.
