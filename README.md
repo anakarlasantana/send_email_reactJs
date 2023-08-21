@@ -1,17 +1,17 @@
-# Login - NodeJS API
+# Login - React Web Frontend
 
-![Alt text](src\assets\image.png)
+![Alt text](image.png)
 
 # 📔 About
-API developed to be used by an application for login, with possible add user and password recuperation.
+Application for login, with possible add user and password recuperation.
 
 # 💻 Is it running?
-Yes! It is live and running and you can see it working behind the scenes by testing the web frontend. 😃
+You can check it out up and running at Netlify by clicking here.
 
 # 👀 Where can I find the web frontend and the mobile app?
 You can check the repositories here:
 
-React Web Frontend Repository
+NodeJs API Repository
 
 # 🚀 Technologies in the API
 Typescript
