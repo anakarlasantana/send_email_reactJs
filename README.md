@@ -8,7 +8,7 @@ Application for login, with possible add users and password recuperation.
 # 💻 Is it running?
 You can check it out up and running at [Vercel by clicking here](https://send-email-react-js.vercel.app/).
 
-# 👀 Where can I find the web frontend and the mobile app?
+# 👀 Where can I find the backend API?
 You can check the repositories here:
 
 [NodeJs API Repository](https://github.com/anakarlasantana/send_email_nodeJs)
