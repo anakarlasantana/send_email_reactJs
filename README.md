@@ -6,12 +6,12 @@
 Application for login, with possible add users and password recuperation.
 
 # 💻 Is it running?
-You can check it out up and running at Netlify by clicking here.
+You can check it out up and running at [Vercel by clicking here](https://send-email-react-js.vercel.app/).
 
 # 👀 Where can I find the web frontend and the mobile app?
 You can check the repositories here:
 
-NodeJs API Repository
+[NodeJs API Repository](https://github.com/anakarlasantana/send_email_nodeJs)
 
 # 🚀 Technologies in the API:
 - Typescript
@@ -28,5 +28,8 @@ NodeJs API Repository
 Made with ❤️ by Ana Karla Santana. 🇧🇷
 
 Get in touch! 😃
+
+<a href="https://www.linkedin.com/in/anakarlasantana/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" style="border-radius: 30px" target="_blank"></a> 
+<a href = "mailto:ana.karla.p.santana@gmail.com"> <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" target="_red"></a>
 
  
