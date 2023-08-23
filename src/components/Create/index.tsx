@@ -1,43 +1,69 @@
-import React, { useCallback, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { postSaveUsers } from '../../pages/services';
-import './styles.css';
 import { Modal, Button } from 'react-bootstrap';
+import './createuserstyles.css'
+
 
 const CreateForm: React.FC = () => {
     const formRef = useRef<HTMLFormElement>(null);
     const [userRegistered, setUserRegistered] = useState(false);
     const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        password: '',
-        confirmPassword: '',
+      name: '',
+      email: '',
+      password: '',
+      confirmPassword: '',
     });
-
+    const [passwordLength, setPasswordLength] = useState(false);
+    const [showAlert, setShowAlert] = useState(false);
+  
+    useEffect(() => {
+      setShowAlert(false); // Inicialmente, oculte o alerta
+    }, []);
+  
     const saveUsers = (userData: { name: string, email: string, password: string }) => {
-        postSaveUsers(userData)
-            .then((res) => {
-                console.log("Cadastro efetuado com sucesso!");
-                setUserRegistered(true);
-            })
-            .catch((error) => {
-                console.error("Erro na requisição:", error);
-            });
+      postSaveUsers(userData)
+        .then((res) => {
+          console.log("Cadastro efetuado com sucesso!");
+          setUserRegistered(true);
+        })
+        .catch((error) => {
+          console.error("Erro na requisição:", error);
+          setPasswordLength(true);
+          setShowAlert(true);
+            setTimeout(() => {
+            setShowAlert(false);
+          }, 5000);
+        });
     };
-
+  
     const handleSubmit = (event: React.FormEvent) => {
-        event.preventDefault();
-
-        if (formRef.current) {
-            const formDataFromForm = new FormData(formRef.current);
-            const userData = {
-                name: formDataFromForm.get('name') as string,
-                email: formDataFromForm.get('email') as string,
-                password: formDataFromForm.get('password') as string,
-            };
-
-            saveUsers(userData);
+      event.preventDefault();
+  
+      if (formRef.current) {
+        const formDataFromForm = new FormData(formRef.current);
+        const password = formDataFromForm.get('password') as string;
+        const confirmPassword = formDataFromForm.get('confirmPassword') as string;
+  
+        if (password.length < 4) {
+          setPasswordLength(true);
+          setShowAlert(true);
+          console.error("As senhas devem ter mais de 4 caracteres.");
+          return;
         }
+  
+        if (password !== confirmPassword) {
+          console.error("As senhas não coincidem.");
+          return;
+        }
+        const userData = {
+          name: formDataFromForm.get('name') as string,
+          email: formDataFromForm.get('email') as string,
+          password: formDataFromForm.get('password') as string,
+        };
+  
+        saveUsers(userData);
+      }
     };
 
     const handleCloseModal = () => {
@@ -50,10 +76,27 @@ const CreateForm: React.FC = () => {
         });
     }
 
+    useEffect(() => {
+        if (showAlert) {
+            document.querySelector('.alert')?.classList.add('show');
+        } else {
+            document.querySelector('.alert')?.classList.remove('show');
+        }
+    }, [showAlert]);
+
+
     return (
         <div className="container">
             <h1>Cadastro de Usuário</h1>
             <span className="login-subtitle">Preencha seus dados</span>
+            <div className={`alert ${passwordLength ? 'alert-danger' : 'alert-success'}`}>
+                {passwordLength
+                    ? 'Senha com menos de 4 caracteres. Por favor, redefina sua senha.'
+                    : 'Usuário cadastrado com sucesso!'}
+                <span className="close" onClick={() => setShowAlert(false)}>
+                    &times;
+                </span>
+            </div>
             <div className="form-login">
                 <form ref={formRef} onSubmit={handleSubmit}>
                     <label>Nome</label>

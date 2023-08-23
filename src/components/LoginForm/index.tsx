@@ -1,13 +1,16 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import './styles.css';
 import { postLogin } from '../../pages/services';
+import './loginstyles.css'
+
 
 const LoginForm: React.FC = () => {
 
     const formRef = useRef<HTMLFormElement>(null);
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
+    const [userNotFound, setUserNotFound] = useState(false);
+    const [showAlert, setShowAlert] = useState(false);
 
     const Login = (userData: { email: string, password: string }) => {
         setLoading(true)
@@ -16,13 +19,18 @@ const LoginForm: React.FC = () => {
                 console.log("Login efetuado com sucesso!");
                 localStorage.setItem("app_user", res.name);
                 navigate('/inicio')
-               
+
             })
             .catch((error) => {
                 console.error("Erro na requisição:", error);
+                setUserNotFound(true)
+                setShowAlert(true);
+                setTimeout(() => {
+                    setShowAlert(false);
+                }, 5000);
             })
             .finally(() => {
-                setLoading(false); 
+                setLoading(false);
             });
     };
 
@@ -39,16 +47,32 @@ const LoginForm: React.FC = () => {
             Login(userData);
         }
     };
-    
 
-    return(
+    useEffect(() => {
+        if (showAlert) {
+            document.querySelector('.alert')?.classList.add('show');
+        } else {
+            document.querySelector('.alert')?.classList.remove('show');
+        }
+    }, [showAlert]);
+
+
+    return (
         <div className="container">
             <h1>Login</h1>
             <span className="login-subtitle">Informe suas credenciais</span>
+            <div className={`alert ${userNotFound ? 'alert-danger' : 'alert-success'}`}>
+                {userNotFound
+                    ? 'Usuário não encontrado. Por favor, verifique seus dados.'
+                    : 'Usuário cadastrado com sucesso!'}
+                <span className="close" onClick={() => setShowAlert(false)}>
+                    &times;
+                </span>
+            </div>
             <div className="form-login">
-            <form ref={formRef} onSubmit={handleSubmit}>
+                <form className="form-login" ref={formRef} onSubmit={handleSubmit}>
                     <label>Email</label>
-                    <input type="email" name='email' className="custom-input" required/>   
+                    <input type="email" name='email' className="custom-input" required />
 
                     <label>Senha</label>
                     <input type="password" name='password' className="custom-input" required />

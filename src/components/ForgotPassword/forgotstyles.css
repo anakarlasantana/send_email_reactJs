@@ -5,6 +5,7 @@
 
 .login-subtitle {
     font-size: 18px;
+    text-align: center;
 }
 
 .form-login > form {
@@ -13,6 +14,8 @@
     flex-direction: column;
     width: 450px;
     padding: 25px;
+    /* width: 728px;
+    height: 760px; */
     border-radius: 47px;
     background: rgba(255, 255, 255, 0.95);
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
@@ -51,29 +54,6 @@
     font-size: 20px;
 }
 
-.custom-buttom-userRegistered {
-    padding: 10px;
-    outline: none;
-    height: 50px;
-    border: 2px solid #f0a141;
-    background-color: #f0a141;
-    color: white;
-    border-radius: 27px;
-    transition: 0.3s;
-    font-size: 20px;
-}
-
-.user-registered {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.close-button {
-    margin-top: 15px; 
-}
-
 .custom-buttom:hover {
 
     border: 2px solid #f0a141;
@@ -106,4 +86,26 @@ a:hover {
 
 .actions > p > a:hover {
     color: #dd943c;
+}
+
+@media screen and (max-width: 500px) {
+    .form-login > form {
+        width: auto;
+        padding: 15px; 
+    }
+    
+    .login-subtitle{
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .custom-input,
+    .custom-button {
+        width: 100%; 
+    }
+
+    .actions {
+        padding-top: 20px; 
+    }
+
 }

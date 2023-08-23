@@ -4,10 +4,14 @@
     /* background-color: #32C7AB; */
     background-image: url("../../assets/background.svg");
     background-size: cover;
+    background-repeat: no-repeat;
+    /* Evita que a imagem se repita */
+    background-position: center;
+    /* Centraliza a imagem */
 
 }
 
-.layout-page > .layout-page-left {
+.layout-page>.layout-page-left {
     margin: 0;
     padding: 0;
     height: 100%;
@@ -15,17 +19,17 @@
     /* background-color: white; */
 }
 
-.layout-page-left > .row-custom {
+.layout-page-left>.row-custom {
     margin: 0;
     width: 100%;
     height: calc(100% - 56px);
 }
 
-.layout-page-left > .row-custom > .form-page {
+.layout-page-left>.row-custom>.form-page {
     height: 100%;
     width: 100%;
     /* background-color: white; */
-    
+
 }
 
 .layout-title {
@@ -61,4 +65,13 @@
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
     color: #c28132;
 
+}
+
+/* styles.css */
+@media screen and (max-width: 600px) {
+    
+    .paper {
+        width: auto;
+        height: auto;
+    }
 }

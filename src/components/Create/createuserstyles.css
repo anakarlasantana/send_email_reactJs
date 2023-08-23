@@ -13,8 +13,6 @@
     flex-direction: column;
     width: 450px;
     padding: 25px;
-    /* width: 728px;
-    height: 760px; */
     border-radius: 47px;
     background: rgba(255, 255, 255, 0.95);
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
@@ -53,6 +51,29 @@
     font-size: 20px;
 }
 
+.custom-buttom-userRegistered {
+    padding: 10px;
+    outline: none;
+    height: 50px;
+    border: 2px solid #f0a141;
+    background-color: #f0a141;
+    color: white;
+    border-radius: 27px;
+    transition: 0.3s;
+    font-size: 20px;
+}
+
+.user-registered {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.close-button {
+    margin-top: 15px; 
+}
+
 .custom-buttom:hover {
 
     border: 2px solid #f0a141;
@@ -85,4 +106,45 @@ a:hover {
 
 .actions > p > a:hover {
     color: #dd943c;
+}
+
+.alert {
+    position: fixed;
+    bottom: 0;
+    right: -300px; 
+    width: 300px;
+    height: 10%;
+    background-color: #f44336ec; 
+    color: #fff; 
+    padding: 20px;
+    transition: right 0.3s ease-in-out; 
+  }
+  
+  .alert.show {
+    right: 0; 
+  }
+  
+  /* Estilos para o botão de fechar */
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  @media screen and (max-width: 500px) {
+    .form-login > form {
+        width: auto;
+        padding: 15px; 
+    }
+    
+    .custom-input,
+    .custom-button {
+        width: 100%; 
+    }
+
+    .actions {
+        padding-top: 20px; 
+    }
 }

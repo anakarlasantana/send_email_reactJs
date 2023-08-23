@@ -1,13 +1,15 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Modal, Button } from 'react-bootstrap';
-import './styles.css';
+import './forgotstyles.css';
 import { postForgotPassword } from '../../pages/services';
 
 const ForgotPasswordForm: React.FC = () => {
     const formRef = useRef<HTMLFormElement>(null);
     const [loading, setLoading] = useState(false);
     const [sendpassword, setSendpassword] = useState(false);
+    const [userNotFound, setUserNotFound] = useState(false);
+    const [showAlert, setShowAlert] = useState(false);
     const [formData, setFormData] = useState({
         email: '',
     });
@@ -23,6 +25,11 @@ const ForgotPasswordForm: React.FC = () => {
             })
             .catch((error) => {
                 console.error("Erro na requisição:", error);
+                setUserNotFound(true)
+                setShowAlert(true);
+                setTimeout(() => {
+                    setShowAlert(false);
+                }, 5000);
             })
             .finally(() => {
                 setLoading(false);
@@ -49,12 +56,28 @@ const ForgotPasswordForm: React.FC = () => {
         });
     }
 
+    useEffect(() => {
+        if (showAlert) {
+            document.querySelector('.alert')?.classList.add('show');
+        } else {
+            document.querySelector('.alert')?.classList.remove('show');
+        }
+    }, [showAlert]);
+
     return (
         <div className="container">
             <h1>Recuperar Senha</h1>
             <span className="login-subtitle">
                 Informe seu email para enviarmos o procedimento de recuperação de senha
             </span>
+            <div className={`alert ${userNotFound ? 'alert-danger' : 'alert-success'}`}>
+                {userNotFound
+                    ? 'Usuário não encontrado. Por favor, verifique seus dados.'
+                    : 'Usuário cadastrado com sucesso!'}
+                <span className="close" onClick={() => setShowAlert(false)}>
+                    &times;
+                </span>
+            </div>
             <div className="form-login">
                 <form ref={formRef} onSubmit={handleSubmit}>
                     <label>Email</label>

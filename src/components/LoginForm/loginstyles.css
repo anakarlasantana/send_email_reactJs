@@ -1,4 +1,4 @@
-
+/* Estilos padrão */
 .container > h1 {
     color: #f0a141;
 }
@@ -13,12 +13,9 @@
     flex-direction: column;
     width: 450px;
     padding: 25px;
-    /* width: 728px;
-    height: 760px; */
     border-radius: 47px;
     background: rgba(255, 255, 255, 0.95);
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
-
 }
 
 .form-login > form > label {
@@ -36,11 +33,10 @@
 }
 
 .custom-input:focus {
-
     border: 3px solid #f0a141;
 }
 
-.custom-buttom {
+.custom-button {
     margin-top: 40px;
     outline: none;
     height: 44px;
@@ -53,14 +49,12 @@
     font-size: 20px;
 }
 
-.custom-buttom:hover {
-
+.custom-button:hover {
     border: 2px solid #f0a141;
     background-color: #dd943c;
 }
 
-.custom-buttom:focus {
-
+.custom-button:focus {
     outline: none;
 }
 
@@ -85,4 +79,45 @@ a:hover {
 
 .actions > p > a:hover {
     color: #dd943c;
+}
+
+.alert {
+    position: fixed;
+    bottom: 0;
+    right: -300px; 
+    width: 300px;
+    height: 10%;
+    background-color: #f44336ec; 
+    color: #fff; 
+    padding: 20px;
+    transition: right 0.3s ease-in-out; 
+  }
+  
+  .alert.show {
+    right: 0; 
+  }
+  
+  /* Estilos para o botão de fechar */
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #fff;
+    cursor: pointer;
+  }
+
+@media screen and (max-width: 500px) {
+    .form-login > form {
+        width: auto;
+        padding: 15px; 
+    }
+ 
+    .custom-input,
+    .custom-button {
+        width: 100%; 
+    }
+
+    .actions {
+        padding-top: 20px; 
+    }
 }
